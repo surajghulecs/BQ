@@ -1,0 +1,9 @@
+INSERT INTO `test.library` (Name, BookDetails, City) values 
+(
+  'Pete',
+  [
+    STRUCT('Game of thrones' as BookName, 'JKR' as Production, 400, 50, date('2021-03-23')),
+    STRUCT('Winner' as BookName, 'Won' as Production, 1000, 100, date('2020-01-01'))
+  ],
+  'NY'
+)
