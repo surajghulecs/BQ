@@ -1,0 +1,20 @@
+-- create table test.employee_array (
+--   name string,
+--   id int,
+--   phone struct <
+--     mobile int,
+--     office int
+--   >,
+--   salary int
+-- )
+
+-- insert into test.employee values
+--   ("abc", 123, (9288383,34566), 25000),
+--   ("def", 124, (8348383483,34234294234), 25000),
+--   ("dfdfd", 125, (34343434,030349349), 29000),
+--   ("abc", 129, (333943493,949343943), 50000)
+
+-- select name, ARRAY_AGG(STRUCT(phone.mobile as mobile, phone.office as office, salary)) as contact from test.employee
+-- group by name
+
+-- select name, c.mobile from `test.bq_array_example` cross join unnest(contact) c
