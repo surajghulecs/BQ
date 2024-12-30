@@ -1,0 +1,8 @@
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import sum, col
+spark = SparkSession.builder.master('local').appName('test').getOrCreate()
+df1 = spark.read.option('header',True).option('inferSchema',True).csv('file:///home/gcplearning1000/employee_records.csv')
+df2 = df1.groupBy('employee_id', 'employee_name').agg(sum('salary').alias('total_salary'))
+df2 = df2.withColumn('salary_int', col('total_salary').cast('int'))\
+        .select('employee_id','employee_name','salary_int')
+df2.show()
